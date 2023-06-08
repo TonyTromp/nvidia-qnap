@@ -30,7 +30,18 @@ ln -s /share/Public/opt/include /usr/include
 ln -s /share/Public/opt/bin/awk /usr/bin/awk
 
 # set path to your build tools
-export PATH=/share/Public/opt/bin:/share/Public/qnap/x86_64-QNAP-linux-gnu/cross-tools/bin:${PATH}
+export BUILD_TOOLS=/share/Public/qnap/x86_64-QNAP-linux-gnu/cross-tools/bin
+export PATH=/share/Public/opt/bin:${BUILD_TOOLS}:${PATH}
+
+# double check if gcc exists (if blank you didnt provide the path to BUILD_TOOLS correctly.)
+which gcc
+
+# softlink compiler
+ln -s `which x86_64-QNAP-linux-gnu-gcc` /bin/cc
+
+#FOR GLIBC/MAKE WE NEED
+export LD_LIBRARY_PATH=/share/Public/qnap/x86_64-QNAP-linux-gnu/fs/lib
+
 
 export LD_LIBRARY_PATH="/lib:/lib64/:/usr/lib:/usr/local/lib:/share/Public/opt/lib:/share/Public/qnap/x86_64-QNAP-linux-gnu/fs/lib:/share/Public/openssl-1.1.1t:/share/Public/qnap/x86_64-QNAP-linux-gnu/fs/lib"
 
