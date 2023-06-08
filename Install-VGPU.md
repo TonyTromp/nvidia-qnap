@@ -1,10 +1,16 @@
-(TODO) Full guide
+## Disclaimer
+This guide is not yet comlete, as i still need to backtrace lots of my steps for a final write-up.
+I am not responsible in any way if you end-up breaking your system because of this guide.
 
 # Pre-requisites
 The following need to be setup in order the create a working vGPU environment
 1. Setup QNAP ToolChain + QNAP Kerner Headers
 2. Compile kernel modules "mdev.ko" and "vfio_mdev.ko" <- necessary for the vGPU Drivers
-3. 
+3. Enable/Load "mdev.ko" and "vfio_mdev.ko"
+```
+insmod mdev.ko
+insmod vfio_mdev.ko
+```
 
 ## 1. Setup QNAP ToolChain + QNAP Kerner Headers
 - Setup a working kernel build environment using the QNAP Kernel Headers (https://sourceforge.net/projects/qosgpl/files/) and the Tool Chain (https://sourceforge.net/projects/qosgpl/files/QNAP%20NAS%20Tool%20Chains/)
