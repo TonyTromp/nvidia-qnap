@@ -97,8 +97,6 @@ export PATH=$PWD:$PWD/build/lib:$PATH
 ```
 
 DONE!!!! Now to load the drivers
-```
 source nvidia.env
 insmod <driver.ko>
 # note that the order of which the NVIDIA Drivers need to be loaded.
-```
