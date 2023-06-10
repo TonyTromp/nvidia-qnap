@@ -69,10 +69,25 @@ ${INSTALLER} \
 --x-library-path=${TARGET} \
 --utility-prefix=${TARGET}
 
-# NOTE: The build will failed however we do have the drivers compiles.
-# you can find the compiled 
+**NOTE: The build will fail to install, but dont worry, if all is well there should be goodies in your build folder**
 
-create the following script
+```
+**Note this listing is for the vGPU drivers**
+cd build
+ls -l
+
+[/share/Public/nvidia/510.108.03-514.08/Host_Drivers/NVIDIA-Linux-x86_64-510.108.03-vgpu-kvm/build] # ls -l
+total 38439
+drwxr-xr-x 2 admin administrators        9 2023-06-10 02:48 bin/
+drwxr-xr-x 2 admin administrators        9 2023-06-10 02:48 lib/
+-rw-r--r-- 1 admin administrators 46044384 2023-06-10 02:48 nvidia.ko
+-rw-r--r-- 1 admin administrators   104568 2023-06-10 02:48 nvidia-vgpu-vfio.ko
+drwxr-xr-x 4 admin administrators        4 2023-06-10 02:48 share/
+```
+
+*note*: If you dont see the *.ko driver files, you will find them in the ./kernel folder. Just copy them (cp *.ko ../build) to the build folder.
+
+Lets add the following script so the needed libraries can be easily loaded
 # nvidia.env
 ```
 #!/bin/sh
@@ -81,7 +96,9 @@ export LD_LIBRARY_PATH=${PWD}:${PWD}/build/lib:$LD_LIBRARY_PATH
 export PATH=$PWD:$PWD/build/lib:$PATH
 ```
 
-Then load the variables using the following command
+DONE!!!! Now to load the drivers
 ```
 source nvidia.env
+insmod <driver.ko>
+# note that the order of which the NVIDIA Drivers need to be loaded.
 ```
