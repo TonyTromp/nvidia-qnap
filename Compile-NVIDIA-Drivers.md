@@ -1,4 +1,4 @@
-
+# Compiling the NVIDIA Drivers
 ```
 # note i have compiled binutils and glibc2.1 in /share/Public/opt/ 
 ln -s /share/Public/opt/include /usr/include
@@ -55,5 +55,7 @@ ${INSTALLER} \
 --x-library-path=${TARGET} \
 --utility-prefix=${TARGET}
 
+# NOTE: The build will failed however we do have the drivers compiles.
+# you can find the compiled 
 
 ```
