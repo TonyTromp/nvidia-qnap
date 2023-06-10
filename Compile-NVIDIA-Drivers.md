@@ -1,5 +1,16 @@
 # Compiling the NVIDIA Drivers
 ```
+# extract the NVIDIA Driver.run file
+```
+chmod a+x <NVIDIA_Driver>.run
+./<NVIDIA_Driver>.run --extract-only
+```
+
+This will create a folder called <NVIDIA_Driver>
+```
+cd <NVIDIA_Driver>
+```
+
 # note i have compiled binutils and glibc2.1 in /share/Public/opt/ 
 ln -s /share/Public/opt/include /usr/include
 ln -s /share/Public/opt/bin/awk /usr/bin/awk
@@ -58,4 +69,16 @@ ${INSTALLER} \
 # NOTE: The build will failed however we do have the drivers compiles.
 # you can find the compiled 
 
+create the following script
+# nvidia.env
+```
+#!/bin/sh
+
+export LD_LIBRARY_PATH=${PWD}:${PWD}/build/lib:$LD_LIBRARY_PATH
+export PATH=$PWD:$PWD/build/lib:$PATH
+```
+
+Then load the variables using the following command
+```
+source nvidia.env
 ```
