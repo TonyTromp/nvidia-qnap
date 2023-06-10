@@ -51,6 +51,9 @@ export KERNEL_SRC=/share/Public/qnap/GPL_QuTS_Hero/src/linux-5.10
 export KERNEL_CFG=${KERNEL_SRC}/.config
 export IGNORE_MISSING_MODULE_SYMVERS=1
 
+# Create the build folder
+mkdir build
+
 INSTALLER=./nvidia-installer 
 TARGET=${PWD}/build
 ${INSTALLER} \
