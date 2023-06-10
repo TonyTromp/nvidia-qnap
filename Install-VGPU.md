@@ -52,4 +52,15 @@ insmod ./nvidia.ko
 insmod ./nvidia-vgpu-vfio.ko
 ```
 
+Then load the variables using the following command
+```
+source nvidia.env
+```
+
+run the following commands to enable MDEV and vGPU drivers
+```
+sudo ./nvidia-vgpud
+ 
+
+```
 
