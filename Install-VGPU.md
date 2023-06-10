@@ -60,7 +60,17 @@ source nvidia.env
 run the following commands to enable MDEV and vGPU drivers
 ```
 sudo ./nvidia-vgpud
- 
+```
 
+check if driver is loaded
+```
+dmesg
+# look for the following line at the end
+[ 4001.093277] nvidia 0000:01:00.0: MDEV: Registered
+```
+
+IF THIS DOES NOT WORK.. a trick is to copy the ./nvidia-vgpud binary to ubuntu station. Open a terminal and run the file from here using sudo:
+```
+sudo ./nvidia-vgpud
 ```
 
