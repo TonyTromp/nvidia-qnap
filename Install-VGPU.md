@@ -74,3 +74,8 @@ IF THIS DOES NOT WORK.. a trick is to copy the ./nvidia-vgpud binary to ubuntu s
 sudo ./nvidia-vgpud
 ```
 
+To manage your vGPU instances, you can install mdevctl on Ubuntu Station:
+```
+apt-get install mdevctl
+```
+
