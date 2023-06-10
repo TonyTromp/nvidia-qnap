@@ -18,8 +18,23 @@ export TERM=ansi
 #
 # EDIT kernel/nvidia/nv-caps.c
 vi kernel/nvidia/nv-caps.c
-# add the following line 43
-#define NV_IS_EXPORT_SYMBOL_PRESENT___close_fd = 1
+# then add the following line 43 (on a empty line)
+#define NV_IS_EXPORT_SYMBOL_PRESENT___close_fd 1
+
+
+#
+# fix error: ./tools/objtool/objtool: error while loading shared libraries: libelf.so.1: cannot open shared object file: No such file or directory
+#
+vi /etc/ld.so.conf
+# add the following entries
+/lib
+/usr/lib
+/usr/local/lib
+/lib64
+/share/Public/opt/lib
+/share/Public/opt/lib64
+# save and run
+ldconfig
 
 export KERNEL_SRC=/share/Public/qnap/GPL_QuTS_Hero/src/linux-5.10
 export KERNEL_CFG=${KERNEL_SRC}/.config
