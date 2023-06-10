@@ -27,3 +27,27 @@ cp /share/Public/qnap/GPL_QuTS_Hero/kernel_cfg/TS-X72/linux-5.10-x86_64.config \
 
 > [Compiling NVIDIA Drivers](./Compile-NVIDIA-Drivers.md)
 
+NOTE: The build will fail, however if all goes well the drivers are already compiled.
+You can find the drivers in ```<nvidia_driver>/kernel``` folder.
+
+The files we care about are:
+
+* nvidia.ko
+* nvidia-vgpu-vfio.ko
+
+## 3. Loading the drivers
+
+Make sure the following order of loading drivers
+
+1. mdev.ko
+2. vfio_mdev.ko
+3. nvidia.ko
+4. nvidia-vgpu-vfio.ko
+
+```
+# If you copy all the *.ko files in one folder you load them using
+insmod ./mdev.ko
+insmod ./vfio_mdev.ko
+insmod ./nvidia.ko
+insmod ./nvidia-vgpu-vfio.ko
+```
