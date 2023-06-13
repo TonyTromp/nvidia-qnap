@@ -1,5 +1,30 @@
 # Pre-requisites
 
+## Loading the drivers
+If you have not done so, load the necessary Kernel + Nvidia drivers to enable vGPU.
+
+```
+# From previous steps (see Install vGPU) load the following modules in order
+insmod ./mdev.ko
+insmod ./vfio_mdev.ko
+insmod ./nvidia.ko
+insmod ./nvidia-vgpu-vfio.ko
+```
+
+After the drivers are loaded, the vGPU is not yet enable, and you need to run the command
+```
+# nvidia source
+cd <nvidia_source>
+export LD_LIBRARY_PATH=${PWD}/bin:${PWD}/lib:$LD_LIBRARY_PATH
+export PATH=$PWD/bin:$PWD/lib:$PATH
+
+cd build/bin
+# note if this folder does not exists, please follow the steps mentioned "Compile-NVIDIA-Drivers.md"(Compile-NVIDIA-Drivers.md)
+nvidia-vgpud
+```
+
+
+
 With the the vGPU device created using the 'mdevctl' command on Ubuntu Station, you should be able to validate using the following command and outputt.
 
 ```
