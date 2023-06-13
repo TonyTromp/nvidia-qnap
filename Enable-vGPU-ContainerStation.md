@@ -5,22 +5,46 @@ If you have not done so, load the necessary Kernel + Nvidia drivers to enable vG
 
 ```
 # From previous steps (see Install vGPU) load the following modules in order
+cd <nvidia_src>/kernel (or <nvidia_src>/build)
 insmod ./mdev.ko
 insmod ./vfio_mdev.ko
 insmod ./nvidia.ko
 insmod ./nvidia-vgpu-vfio.ko
 ```
 
-After the drivers are loaded, the vGPU is not yet enable, and you need to run the command
+Here is where life gets a bit more interesting/complicated on QNAP.
+The 'nvidia-vgpud' binary needed to enable vGPU does not run natively (has some dependencies which i am unable to indicate)
+
+Here is my workaround (note you need to RUN Ubuntu Linux Station for this to work)
+
+copy the vGPU-enabler to Ubuntu Station
+cd <nvidia_src>/build/bin
+cp nvidia-vgpud /share/ZFS530_DATA/.qpkg/ubuntu-hd/container-rootfs-home/admin/
+# REPLACE ZFS530_DATA with the folder in which you have ubuntu station running.
 ```
+# ALTERNATE INSTALL (NOT WORKING YeT..Still trying to find missing dependency
 # nvidia source
 cd <nvidia_source>
 export LD_LIBRARY_PATH=${PWD}/bin:${PWD}/lib:$LD_LIBRARY_PATH
 export PATH=$PWD/bin:$PWD/lib:$PATH
 
+# ADD nvidia libs to ldconfig
+vi /etc/ld.so.conf
+
+# add
+/share/<NVIDIA_SRC>/build/lib
+# refresh ldconfig
+ldconfig
+# check 
+ldconfig -p
+
+
+copy nvidia-vgpud to ubuntu station and run
+sudo ./nvidia-vgpud
+
 # note if build/bin folder does not exists, please follow the steps mentioned [Compile-NVIDIA-Drivers.md](Compile-NVIDIA-Drivers.md).
-cd build/bin
-nvidia-vgpud
+#cd build/bin
+#nvidia-vgpud
 ```
 
 
