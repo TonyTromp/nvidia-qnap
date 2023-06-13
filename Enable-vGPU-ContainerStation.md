@@ -18,8 +18,8 @@ cd <nvidia_source>
 export LD_LIBRARY_PATH=${PWD}/bin:${PWD}/lib:$LD_LIBRARY_PATH
 export PATH=$PWD/bin:$PWD/lib:$PATH
 
+# note if build/bin folder does not exists, please follow the steps mentioned [Compile-NVIDIA-Drivers.md](Compile-NVIDIA-Drivers.md).
 cd build/bin
-# note if this folder does not exists, please follow the steps mentioned "Compile-NVIDIA-Drivers.md"(Compile-NVIDIA-Drivers.md)
 nvidia-vgpud
 ```
 
