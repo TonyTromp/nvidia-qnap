@@ -67,7 +67,13 @@ ${INSTALLER} \
 --opengl-prefix=${TARGET} \
 --x-prefix=${TARGET} \
 --x-library-path=${TARGET} \
---utility-prefix=${TARGET}
+--utility-prefix=${TARGET} \
+--skip-depmod \
+--no-check-for-alternate-installs \
+--expert
+
+#
+#--kernel-module-build-directory=${TARGET} \
 
 **NOTE: The build will fail to install, but dont worry, if all is well there should be goodies in your build folder**
 
