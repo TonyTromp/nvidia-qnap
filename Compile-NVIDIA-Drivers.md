@@ -3,6 +3,7 @@
 # extract the NVIDIA Driver.run file
 ```
 chmod a+x <NVIDIA_Driver>.run
+
 ./<NVIDIA_Driver>.run --extract-only
 ```
 
