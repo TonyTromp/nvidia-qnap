@@ -20,8 +20,9 @@ ln -s /share/Public/opt/include /usr/include
 export PATH=/share/Public/opt/bin:/share/Public/qnap/x86_64-QNAP-linux-gnu/cross-tools/bin:${PATH}
 export CC=gcc
 export TERM=ansi
+```
 
-
+```
 #
 # fix error: kernel/nvidia/nv-caps.c:567:5: error: implicit declaration of function 'sys_close' [-Werror=implicit-function-declaration]
 #     sys_close(fd);
