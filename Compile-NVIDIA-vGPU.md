@@ -40,7 +40,7 @@ INSTALLER=./nvidia-installer
 TARGET=${PWD}/build
 mkdir $TARGET
 
-${INSTALLER} --no-distro-scripts --kernel-source-path=${KERNEL_SRC} --no-precompiled-interface --documentation-prefix=${TARGET} --installer-prefix=${TARGET} --utility-prefix=${TARGET} --kernel-install-path=${TARGET}  --x-prefix=${TARGET} --x-library-path=${TARGET} --utility-prefix=${TARGET} --kernel-module-source-prefix=${TARGET} --x-prefix=${TARGET} --skip-depmod --no-systemd --no-nvidia-modprobe --skip-module-unload --expert --no-dkms --no-rpms --no-backup --no-x-check --no-nouveau-check --no-distro-scripts --no-check-for-alternate-installs -j6 \
+${INSTALLER} --no-distro-scripts --kernel-source-path=${KERNEL_SRC} --no-precompiled-interface --documentation-prefix=${TARGET} --installer-prefix=${TARGET} --utility-prefix=${TARGET} --kernel-install-path=${TARGET}  --x-prefix=${TARGET} --x-library-path=${TARGET} --utility-prefix=${TARGET} --kernel-module-source-prefix=${TARGET} --x-prefix=${TARGET} --skip-depmod --no-systemd --no-nvidia-modprobe --skip-module-unload --expert --no-rpms --no-backup --no-x-check --no-nouveau-check --no-distro-scripts --no-check-for-alternate-installs -j6 \
 ```
 
 Note the the installer will fail as it wont be able install the drivers using systemd or dkms.
