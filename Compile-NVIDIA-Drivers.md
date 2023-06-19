@@ -32,7 +32,9 @@ export TERM=ansi
 vi kernel/nvidia/nv-caps.c
 # then add the following line 43 (on a empty line)
 #define NV_IS_EXPORT_SYMBOL_PRESENT___close_fd 1
+```
 
+```
 #export LD_LIBRARY_PATH="/lib:/lib64/:/usr/lib:/usr/local/lib:/share/Public/opt/lib:/share/Public/qnap/x86_64-QNAP-linux-gnu/fs/lib:/share/Public/openssl-1.1.1t:/share/Public/qnap/x86_64-QNAP-linux-gnu/fs/lib"
 
 #
@@ -48,11 +50,15 @@ vi /etc/ld.so.conf
 /share/Public/opt/lib64
 # save and run
 ldconfig
+```
 
+```
 export KERNEL_SRC=/share/Public/qnap/GPL_QuTS_Hero/src/linux-5.10
 export KERNEL_CFG=${KERNEL_SRC}/.config
 export IGNORE_MISSING_MODULE_SYMVERS=1
+```
 
+```
 # Create the build folder
 mkdir build
 
